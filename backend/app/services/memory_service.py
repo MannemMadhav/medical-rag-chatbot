@@ -1,0 +1,11 @@
+from langchain_classic.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(
+    return_messages=True
+)
+
+
+def get_memory():
+    """
+    Return the chatbot conversation memory.
+    """
+    return memory

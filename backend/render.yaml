@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: medical-rag-backend
+
+    env: docker
+
+    plan: free
+
+    dockerfilePath: ./Dockerfile
+
+    autoDeploy: true
