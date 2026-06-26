@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import config from "../config";
 
 function Sidebar({ onClearChat }) {
     const fileInputRef = useRef(null);
@@ -10,7 +11,7 @@ function Sidebar({ onClearChat }) {
     const loadDocuments = async () => {
         try {
             const response = await axios.get(
-                "http://127.0.0.1:8000/documents"
+               `${config.API_URL}/documents`
             );
 
             setDocuments(response.data.documents || []);
@@ -37,7 +38,7 @@ function Sidebar({ onClearChat }) {
 
         try {
             await axios.post(
-                "http://127.0.0.1:8000/upload",
+                `${config.API_URL}/upload`,
                 formData,
                 {
                     headers: {
@@ -65,7 +66,7 @@ function Sidebar({ onClearChat }) {
 
         try {
             await axios.delete(
-                `http://127.0.0.1:8000/documents/${encodeURIComponent(filename)}`
+                `${config.API_URL}/documents/${encodeURIComponent(filename)}`
             );
 
             if (currentPdf === filename) {
