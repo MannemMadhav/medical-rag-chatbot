@@ -9,10 +9,11 @@ BASE_DIR = Path(__file__).resolve().parents[3]
 
 class Settings:
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    JINA_API_KEY = os.getenv("JINA_API_KEY")
 
     EMBEDDING_MODEL = os.getenv(
         "EMBEDDING_MODEL",
-        "sentence-transformers/all-MiniLM-L6-v2",
+        "jina-embeddings-v3",
     )
 
     VECTOR_DB_PATH = Path(
