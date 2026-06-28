@@ -1,13 +1,13 @@
 from pathlib import Path
 import shutil
-
+from app.core.config import settings
 from fastapi import APIRouter, UploadFile, File, HTTPException
 
 from app.services.document_service import rebuild_knowledge_base
 
 router = APIRouter()
 
-UPLOAD_DIR = Path("data/raw/medical_pdfs")
+UPLOAD_DIR = Path(settings.PDF_DATA_PATH)
 
 
 @router.post("/upload")
