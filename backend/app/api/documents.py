@@ -51,13 +51,26 @@ async def list_documents():
 
 @router.delete("/documents/{filename}")
 async def delete_document(filename: str):
+    print("=" * 60)
+    print("DELETE REQUEST")
+    print("filename:", repr(filename))
+    print("UPLOAD_DIR:", UPLOAD_DIR)
+    print("Exists:", UPLOAD_DIR.exists())
+
+    files = list(UPLOAD_DIR.glob("*"))
+    print("FILES:")
+    for f in files:
+        print(" ->", repr(f.name))
 
     file_path = UPLOAD_DIR / filename
+    print("Target:", file_path)
+    print("Target exists:", file_path.exists())
+    print("=" * 60)
 
     if not file_path.exists():
         raise HTTPException(
             status_code=404,
-            detail="Document not found",
+            detail=f"Document not found: {filename}",
         )
 
     file_path.unlink()
