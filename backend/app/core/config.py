@@ -19,14 +19,14 @@ class Settings:
     VECTOR_DB_PATH = Path(
         os.getenv(
             "VECTOR_DB_PATH",
-            str(BASE_DIR / "backend" / "data" / "vector_db"),
+            str(BASE_DIR / "data" / "vector_db")
         )
     )
 
     PDF_DATA_PATH = Path(
         os.getenv(
             "PDF_DATA_PATH",
-            str(BASE_DIR / "backend" / "data" / "raw" / "medical_pdfs"),
+            str(BASE_DIR / "data" / "raw" / "medical_pdfs")
         )
     )
 
