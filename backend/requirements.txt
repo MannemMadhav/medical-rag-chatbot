@@ -2,7 +2,6 @@ fastapi
 uvicorn
 langchain
 langchain-community
-langchain-jina
 langchain-core
 langchain-text-splitters
 chromadb

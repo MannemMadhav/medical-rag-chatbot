@@ -1,9 +1,9 @@
-import os
-from langchain_jina import JinaEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+from app.core.config import settings
 
 
 def get_embedding_model():
-    return JinaEmbeddings(
-        jina_api_key=os.getenv("JINA_API_KEY"),
-        model_name="jina-embeddings-v3",
+    return HuggingFaceEmbeddings(
+        model_name=settings.EMBEDDING_MODEL
     )
