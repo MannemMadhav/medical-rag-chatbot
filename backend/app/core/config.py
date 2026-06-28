@@ -12,8 +12,8 @@ class Settings:
     JINA_API_KEY = os.getenv("JINA_API_KEY")
 
     EMBEDDING_MODEL = os.getenv(
-        "EMBEDDING_MODEL",
-        "jina-embeddings-v3",
+    "EMBEDDING_MODEL",
+    "BAAI/bge-small-en-v1.5",
     )
 
     VECTOR_DB_PATH = Path(
