@@ -11,30 +11,33 @@ app = FastAPI(
     version="1.0.0",
 )
 
+# Global Exception Handler
 app.add_exception_handler(
     Exception,
     global_exception_handler,
 )
 
+# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
         "https://medical-rag-chatbot-psi.vercel.app",
+        "https://medical-rag-chatbot-git-main-madhav5.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
+# Root Endpoint
 @app.get("/")
 def root():
     return {
-        "message": "Medical RAG Chatbot API Running",
+        "message": "Medical RAG Chatbot API Running"
     }
 
-
+# Register Routers
 app.include_router(chat_router)
 app.include_router(health_router)
 app.include_router(documents_router)
